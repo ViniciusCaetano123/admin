@@ -1,0 +1,24 @@
+[
+    {
+        "produto":{
+            "in":1,
+            "de":1,
+            "al":1
+        },
+        "conteudo":{
+            "in":1,
+            "de":1,
+            "al":1
+        },
+        "usuario":{
+            "in":1,
+            "de":1,
+            "al":1
+        },
+        "perguntas_respostas":{
+            "in":1,
+            "de":1,
+            "al":1
+        }
+    }
+]
