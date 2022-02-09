@@ -61,22 +61,24 @@ export default {
 props:['dados'],
     data(){
         return{
-            
+            esperar:true
         }
     },
     methods:{
-        async AtivarDesativar(n){
-            n.ativo = n.ativo ? !n.ativo : !n.ativo
+        async AtivarDesativar(n){          
+             n.ativo = n.ativo ? !n.ativo : !n.ativo
             await axios.get(`http://192.168.10.107:3000/desativar-ativar/${n.ativo}/${n.id}`)
             .then(e=>{
-                console.log(e)
+                this.$store.state.txtNoti = e.data.msg
             })
             .catch(err=>{
-                console.log(err.response)
               if(err.response.status == 401){
+                this.$router.push({name:'dashboard'})
+              }
+              if(err.response.status == 402){
                 this.$router.push({name:'tela-login'})
               }
-            })
+            })          
         }
     }
 }

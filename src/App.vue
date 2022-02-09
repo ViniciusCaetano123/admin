@@ -26,6 +26,9 @@ export default {
 *{
 	font-family: "Roboto",sans-serif;		
 }
+.vm--modal{
+	padding:15px;
+}
 body{
 	margin:0;	
 }

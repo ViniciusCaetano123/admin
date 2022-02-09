@@ -60,13 +60,8 @@ export default {
     }
   },
   methods:{
-    AbrirRota(name,op){     
-      if(name == 'dashboard'){
-        this.$router.push({name:name}) 
-      }
-      else if(this.$store.state.chaveAcesso[op].de != 0 || this.$store.state.chaveAcesso[op].al != 0 || this.$store.state.chaveAcesso[op].in != 0){
-        this.$router.push({name:name}) 
-      }
+    AbrirRota(name,op){           
+     this.$router.push({name:name})      
     },
     AbrirMenu(id){      
       let existeId = this.abertos.findIndex(e=> e == id)      

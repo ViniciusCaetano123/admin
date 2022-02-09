@@ -25,7 +25,7 @@
           <span class="nao-preenchido" v-if="msgSenha">Senha não preenchido</span>
           <span class="tamanho" v-else></span>
         
-        <button  @click="Logar" type="button" class="el-button el-button--primary el-button--medium" style="width: 100%; margin-bottom: 30px;"><span v-if="!$store.state.spiner"> Login </span>  <b-spinner v-else variant="success" label="Spinning" style="color: #fff !important;width: 20px;height: 20px;" ></b-spinner> </button>
+        <button  @click="Logar" type="button" class="el-button el-button--primary el-button--medium" style="width: 100%; margin-bottom: 30px;"><BtnLoader nome="Login"/> </button>
         <p class="nao-preenchido" style="text-align">{{msgRetorno}}</p>
       </form>
     
@@ -56,8 +56,7 @@ export default {
                 try{
                 this.$store.state.spiner = true
                 await axios.post('http://192.168.10.107:3000/logar',{"login":this.login,"senha":this.senha})
-                .then(e=>{                    
-                    
+                .then(e=>{    
                     localStorage.setItem("admin_user",JSON.stringify({"hash":e.data.hash}))
                     axios.defaults.headers.common['hash'] = `${e.data.hash}` 
                     this.$router.push({name:'dashboard'})                    
